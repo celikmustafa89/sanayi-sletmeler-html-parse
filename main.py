@@ -46,28 +46,39 @@ def html_parse(html_text, header_counter):
                 header_counter = add_header_dict(' '.join(tds[i].get_text().split()), header_counter)
             #print("{}: {}".format(' '.join(tds[i].get_text().split()), ' '.join(tds[i + 1].get_text().split())))
 
-
         #for entrepreneur gets name surname of team
         tds = soup.find('i', {'class' : 'fa fa-users'}).parent.parent.find_all("td")
         for i in range(0, len(tds), 2):
-            info_dict[' '.join(tds[i].get_text().split()) + " - " + str(int((i / 4) + 1))] = ' '.join(tds[i + 1].get_text().split())
-            header_counter = add_header_dict(' '.join(tds[i].get_text().split()) + " - " + str(int((i / 4) + 1)), header_counter)
-            #print("{}: {}".format(' '.join(tds[i].get_text().split()), ' '.join(tds[i + 1].get_text().split())))
-
-
-        tds = soup.find(id="menu").find_all("td")
-        for i in range(0, len(tds), 2):
             info_dict[' '.join(tds[i].get_text().split())] = ' '.join(tds[i + 1].get_text().split())
             header_counter = add_header_dict(' '.join(tds[i].get_text().split()), header_counter)
             #print("{}: {}".format(' '.join(tds[i].get_text().split()), ' '.join(tds[i + 1].get_text().split())))
 
-        tds = soup.find(id="menu1").find_all("td")
-        for i in range(0, len(tds), 2):
-            info_dict[' '.join(tds[i].get_text().split())] = ' '.join(tds[i + 1].get_text().split())
-            header_counter = add_header_dict(' '.join(tds[i].get_text().split()), header_counter)
-            #print("{}: {}".format(' '.join(tds[i].get_text().split()), ' '.join(tds[i + 1].get_text().split())))
+        soups = soup.find(id="menu")
+        if soups != None:
+            tds = soups.find_all("td")
+            for i in range(0, len(tds), 2):
+                info_dict[' '.join(tds[i].get_text().split())] = ' '.join(tds[i + 1].get_text().split())
+                header_counter = add_header_dict(' '.join(tds[i].get_text().split()), header_counter)
+                #print("{}: {}".format(' '.join(tds[i].get_text().split()), ' '.join(tds[i + 1].get_text().split())))
+
+        soups = soup.find(id="menu1")
+        if soups != None:
+            tds = soups.find_all("td")
+            for i in range(0, len(tds), 2):
+                info_dict[' '.join(tds[i].get_text().split())] = ' '.join(tds[i + 1].get_text().split())
+                header_counter = add_header_dict(' '.join(tds[i].get_text().split()), header_counter)
+                #print("{}: {}".format(' '.join(tds[i].get_text().split()), ' '.join(tds[i + 1].get_text().split())))
+
+        soups = soup.find(id="menu2")
+        if soups != None:
+            tds = soups.find_all("td")
+            for i in range(0, len(tds), 2):
+                info_dict[' '.join(tds[i].get_text().split())] = ' '.join(tds[i + 1].get_text().split())
+                header_counter = add_header_dict(' '.join(tds[i].get_text().split()), header_counter)
+                #print("{}: {}".format(' '.join(tds[i].get_text().split()), ' '.join(tds[i + 1].get_text().split())))
 
         # project details
+        """
         tds = soup.find(id="menu2").find_all("td")
         if len(tds) >= 5:
             for i in range(0, len(tds), 7):
@@ -87,18 +98,30 @@ def html_parse(html_text, header_counter):
                     tds[i + 6].get_text().split())
                 header_counter = add_header_dict(
                     ' '.join(tds[i + 5].get_text().split()) + " - " + str(int((i / 7) + 1)), header_counter)
+        """
+        soups = soup.find(id="menu3")
+        if soups != None:
+            tds = soups.find_all("td")
+            for i in range(0, len(tds), 2):
+                info_dict[' '.join(tds[i].get_text().split())] = ' '.join(tds[i + 1].get_text().split())
+                header_counter = add_header_dict(' '.join(tds[i].get_text().split()), header_counter)
+                #print("{}: {}".format(' '.join(tds[i].get_text().split()), ' '.join(tds[i + 1].get_text().split())))
 
-        tds = soup.find(id="menu3").find_all("td")
-        for i in range(0, len(tds), 2):
-            info_dict[' '.join(tds[i].get_text().split())] = ' '.join(tds[i + 1].get_text().split())
-            header_counter = add_header_dict(' '.join(tds[i].get_text().split()), header_counter)
-            #print("{}: {}".format(' '.join(tds[i].get_text().split()), ' '.join(tds[i + 1].get_text().split())))
+        soups = soup.find(id="menu4")
+        if soups != None:
+            tds = soups.find_all("td")
+            for i in range(0, len(tds), 2):
+                info_dict[' '.join(tds[i].get_text().split())] = ' '.join(tds[i + 1].get_text().split())
+                header_counter = add_header_dict(' '.join(tds[i].get_text().split()), header_counter)
+                #print("{}: {}".format(' '.join(tds[i].get_text().split()), ' '.join(tds[i + 1].get_text().split())))
 
-        tds = soup.find(id="menu4").find_all("td")
-        for i in range(0, len(tds), 2):
-            info_dict[' '.join(tds[i].get_text().split())] = ' '.join(tds[i + 1].get_text().split())
-            header_counter = add_header_dict(' '.join(tds[i].get_text().split()), header_counter)
-            #print("{}: {}".format(' '.join(tds[i].get_text().split()), ' '.join(tds[i + 1].get_text().split())))
+        soups = soup.find(id="menu5")
+        if soups != None:
+            tds = soups.find_all("td")
+            for i in range(0, len(tds), 2):
+                info_dict[' '.join(tds[i].get_text().split())] = ' '.join(tds[i + 1].get_text().split())
+                header_counter = add_header_dict(' '.join(tds[i].get_text().split()), header_counter)
+                #print("{}: {}".format(' '.join(tds[i].get_text().split()), ' '.join(tds[i + 1].get_text().split())))
 
         #print("\n")
         return header_counter
@@ -109,14 +132,14 @@ def html_parse(html_text, header_counter):
 
 
 # workbook = xlsxwriter.Workbook('techno-entrepreneur.xlsx')
-workbook = xlsxwriter.Workbook('techno-entrepreneur.xlsx')
+workbook = xlsxwriter.Workbook('RD_and_design_center.xlsx')
 worksheet = workbook.add_worksheet()
 
 info_dict = dict()
 headers_dict = dict()
 header_counter = 0
-filename = "zeynep1.log"
-#filename = "zeynep2.log"
+#filename = "zeynep1.log"
+filename = "zeynep2.log"
 
 with open(filename) as file:
     file_content = file.read()
